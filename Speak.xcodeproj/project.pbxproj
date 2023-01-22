@@ -7,18 +7,68 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0417FA36297A9C5400C23D87 /* SpeakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA35297A9C5400C23D87 /* SpeakView.swift */; };
+		0417FA38297A9C6200C23D87 /* SpeakVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA37297A9C6200C23D87 /* SpeakVM.swift */; };
+		0417FA3A297A9D9A00C23D87 /* VoicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA39297A9D9A00C23D87 /* VoicesView.swift */; };
+		0417FA3E297A9E2500C23D87 /* DraggableBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA3C297A9E2500C23D87 /* DraggableBar.swift */; };
+		0417FA3F297A9E2500C23D87 /* DismissCross.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA3D297A9E2500C23D87 /* DismissCross.swift */; };
+		0417FA46297AA13100C23D87 /* AVSpeechSynthesisVoiceQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA45297AA13100C23D87 /* AVSpeechSynthesisVoiceQuality.swift */; };
+		0417FA48297AA29500C23D87 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA47297AA29500C23D87 /* Row.swift */; };
+		0417FA4A297AA46D00C23D87 /* VoiceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA49297AA46D00C23D87 /* VoiceRow.swift */; };
+		0417FA4C297AA7CB00C23D87 /* AVSpeechSynthesisVoiceGender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA4B297AA7CB00C23D87 /* AVSpeechSynthesisVoiceGender.swift */; };
+		0417FA4F297AED7900C23D87 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA4E297AED7900C23D87 /* Defaults.swift */; };
+		0417FA51297AF03500C23D87 /* VoicesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA50297AF03500C23D87 /* VoicesVM.swift */; };
+		0417FA53297AFDB700C23D87 /* ActionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA52297AFDB700C23D87 /* ActionBar.swift */; };
+		0417FA55297B3B2B00C23D87 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA54297B3B2B00C23D87 /* Collection.swift */; };
+		0417FA5F297B65D300C23D87 /* AVSpeechSynthesisVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA5E297B65D300C23D87 /* AVSpeechSynthesisVoice.swift */; };
+		0417FA65297D70ED00C23D87 /* FilesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA64297D70ED00C23D87 /* FilesVM.swift */; };
+		0417FA67297D720D00C23D87 /* FilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA66297D720D00C23D87 /* FilesView.swift */; };
+		0417FA6B297D763E00C23D87 /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA6A297D763E00C23D87 /* NameView.swift */; };
+		0417FA6D297D77AC00C23D87 /* ClearCross.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA6C297D77AC00C23D87 /* ClearCross.swift */; };
+		0417FA6F297D7BC300C23D87 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA6E297D7BC300C23D87 /* URL.swift */; };
+		0417FA71297D7C7500C23D87 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA70297D7C7500C23D87 /* String.swift */; };
+		0417FA74297D7EC000C23D87 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA73297D7EC000C23D87 /* PlayView.swift */; };
+		0417FA7A297D83D100C23D87 /* ErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA79297D83D100C23D87 /* ErrorLabel.swift */; };
+		0417FA7C297D8EDD00C23D87 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA7B297D8EDC00C23D87 /* ImagePicker.swift */; };
+		0417FA7F297D976500C23D87 /* URLPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA7E297D976500C23D87 /* URLPicker.swift */; };
+		0417FA81297D978500C23D87 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA80297D978500C23D87 /* WebView.swift */; };
+		0417FA83297D97A100C23D87 /* WebVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA82297D97A100C23D87 /* WebVM.swift */; };
+		0417FA85297D9EFF00C23D87 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA84297D9EFF00C23D87 /* View.swift */; };
 		04E3833B294D319B0070AC9B /* SpeakApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E3833A294D319B0070AC9B /* SpeakApp.swift */; };
-		04E3833D294D319B0070AC9B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E3833C294D319B0070AC9B /* ContentView.swift */; };
 		04E3833F294D319C0070AC9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E3833E294D319C0070AC9B /* Assets.xcassets */; };
-		04E38342294D319C0070AC9B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E38341294D319C0070AC9B /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0417FA35297A9C5400C23D87 /* SpeakView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakView.swift; sourceTree = "<group>"; };
+		0417FA37297A9C6200C23D87 /* SpeakVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakVM.swift; sourceTree = "<group>"; };
+		0417FA39297A9D9A00C23D87 /* VoicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicesView.swift; sourceTree = "<group>"; };
+		0417FA3C297A9E2500C23D87 /* DraggableBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableBar.swift; sourceTree = "<group>"; };
+		0417FA3D297A9E2500C23D87 /* DismissCross.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissCross.swift; sourceTree = "<group>"; };
+		0417FA45297AA13100C23D87 /* AVSpeechSynthesisVoiceQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVSpeechSynthesisVoiceQuality.swift; sourceTree = "<group>"; };
+		0417FA47297AA29500C23D87 /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
+		0417FA49297AA46D00C23D87 /* VoiceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRow.swift; sourceTree = "<group>"; };
+		0417FA4B297AA7CB00C23D87 /* AVSpeechSynthesisVoiceGender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVSpeechSynthesisVoiceGender.swift; sourceTree = "<group>"; };
+		0417FA4E297AED7900C23D87 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		0417FA50297AF03500C23D87 /* VoicesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicesVM.swift; sourceTree = "<group>"; };
+		0417FA52297AFDB700C23D87 /* ActionBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBar.swift; sourceTree = "<group>"; };
+		0417FA54297B3B2B00C23D87 /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		0417FA5E297B65D300C23D87 /* AVSpeechSynthesisVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVSpeechSynthesisVoice.swift; sourceTree = "<group>"; };
+		0417FA64297D70ED00C23D87 /* FilesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesVM.swift; sourceTree = "<group>"; };
+		0417FA66297D720D00C23D87 /* FilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesView.swift; sourceTree = "<group>"; };
+		0417FA6A297D763E00C23D87 /* NameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
+		0417FA6C297D77AC00C23D87 /* ClearCross.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearCross.swift; sourceTree = "<group>"; };
+		0417FA6E297D7BC300C23D87 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		0417FA70297D7C7500C23D87 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		0417FA73297D7EC000C23D87 /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
+		0417FA79297D83D100C23D87 /* ErrorLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorLabel.swift; sourceTree = "<group>"; };
+		0417FA7B297D8EDC00C23D87 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		0417FA7E297D976500C23D87 /* URLPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLPicker.swift; sourceTree = "<group>"; };
+		0417FA80297D978500C23D87 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		0417FA82297D97A100C23D87 /* WebVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebVM.swift; sourceTree = "<group>"; };
+		0417FA84297D9EFF00C23D87 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		04E38337294D319B0070AC9B /* Speak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Speak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E3833A294D319B0070AC9B /* SpeakApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakApp.swift; sourceTree = "<group>"; };
-		04E3833C294D319B0070AC9B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		04E3833E294D319C0070AC9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		04E38341294D319C0070AC9B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +82,102 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0417FA3B297A9DFA00C23D87 /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				0417FA7B297D8EDC00C23D87 /* ImagePicker.swift */,
+				0417FA47297AA29500C23D87 /* Row.swift */,
+				0417FA79297D83D100C23D87 /* ErrorLabel.swift */,
+				0417FA6C297D77AC00C23D87 /* ClearCross.swift */,
+				0417FA3D297A9E2500C23D87 /* DismissCross.swift */,
+				0417FA3C297A9E2500C23D87 /* DraggableBar.swift */,
+				0417FA84297D9EFF00C23D87 /* View.swift */,
+			);
+			path = Extra;
+			sourceTree = "<group>";
+		};
+		0417FA43297A9FB600C23D87 /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				0417FA61297D6EB700C23D87 /* Files */,
+				0417FA7D297D972600C23D87 /* Website */,
+				0417FA72297D7EA500C23D87 /* Play */,
+				0417FA57297B427A00C23D87 /* Speak */,
+				0417FA58297B428800C23D87 /* Voices */,
+				0417FA3B297A9DFA00C23D87 /* Extra */,
+			);
+			path = Groups;
+			sourceTree = "<group>";
+		};
+		0417FA44297AA11E00C23D87 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0417FA6E297D7BC300C23D87 /* URL.swift */,
+				0417FA70297D7C7500C23D87 /* String.swift */,
+				0417FA54297B3B2B00C23D87 /* Collection.swift */,
+				0417FA5E297B65D300C23D87 /* AVSpeechSynthesisVoice.swift */,
+				0417FA45297AA13100C23D87 /* AVSpeechSynthesisVoiceQuality.swift */,
+				0417FA4B297AA7CB00C23D87 /* AVSpeechSynthesisVoiceGender.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0417FA4D297AED6600C23D87 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0417FA4E297AED7900C23D87 /* Defaults.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		0417FA57297B427A00C23D87 /* Speak */ = {
+			isa = PBXGroup;
+			children = (
+				0417FA35297A9C5400C23D87 /* SpeakView.swift */,
+				0417FA52297AFDB700C23D87 /* ActionBar.swift */,
+				0417FA6A297D763E00C23D87 /* NameView.swift */,
+				0417FA37297A9C6200C23D87 /* SpeakVM.swift */,
+			);
+			path = Speak;
+			sourceTree = "<group>";
+		};
+		0417FA58297B428800C23D87 /* Voices */ = {
+			isa = PBXGroup;
+			children = (
+				0417FA39297A9D9A00C23D87 /* VoicesView.swift */,
+				0417FA49297AA46D00C23D87 /* VoiceRow.swift */,
+				0417FA50297AF03500C23D87 /* VoicesVM.swift */,
+			);
+			path = Voices;
+			sourceTree = "<group>";
+		};
+		0417FA61297D6EB700C23D87 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				0417FA66297D720D00C23D87 /* FilesView.swift */,
+				0417FA64297D70ED00C23D87 /* FilesVM.swift */,
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
+		0417FA72297D7EA500C23D87 /* Play */ = {
+			isa = PBXGroup;
+			children = (
+				0417FA73297D7EC000C23D87 /* PlayView.swift */,
+			);
+			path = Play;
+			sourceTree = "<group>";
+		};
+		0417FA7D297D972600C23D87 /* Website */ = {
+			isa = PBXGroup;
+			children = (
+				0417FA7E297D976500C23D87 /* URLPicker.swift */,
+				0417FA80297D978500C23D87 /* WebView.swift */,
+				0417FA82297D97A100C23D87 /* WebVM.swift */,
+			);
+			path = Website;
+			sourceTree = "<group>";
+		};
 		04E3832E294D319B0070AC9B = {
 			isa = PBXGroup;
 			children = (
@@ -52,19 +198,12 @@
 			isa = PBXGroup;
 			children = (
 				04E3833A294D319B0070AC9B /* SpeakApp.swift */,
-				04E3833C294D319B0070AC9B /* ContentView.swift */,
 				04E3833E294D319C0070AC9B /* Assets.xcassets */,
-				04E38340294D319C0070AC9B /* Preview Content */,
+				0417FA43297A9FB600C23D87 /* Groups */,
+				0417FA4D297AED6600C23D87 /* Helpers */,
+				0417FA44297AA11E00C23D87 /* Extensions */,
 			);
 			path = Speak;
-			sourceTree = "<group>";
-		};
-		04E38340294D319C0070AC9B /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				04E38341294D319C0070AC9B /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,7 +264,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04E38342294D319C0070AC9B /* Preview Assets.xcassets in Resources */,
 				04E3833F294D319C0070AC9B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,8 +275,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04E3833D294D319B0070AC9B /* ContentView.swift in Sources */,
+				0417FA6D297D77AC00C23D87 /* ClearCross.swift in Sources */,
 				04E3833B294D319B0070AC9B /* SpeakApp.swift in Sources */,
+				0417FA51297AF03500C23D87 /* VoicesVM.swift in Sources */,
+				0417FA67297D720D00C23D87 /* FilesView.swift in Sources */,
+				0417FA36297A9C5400C23D87 /* SpeakView.swift in Sources */,
+				0417FA7A297D83D100C23D87 /* ErrorLabel.swift in Sources */,
+				0417FA38297A9C6200C23D87 /* SpeakVM.swift in Sources */,
+				0417FA46297AA13100C23D87 /* AVSpeechSynthesisVoiceQuality.swift in Sources */,
+				0417FA55297B3B2B00C23D87 /* Collection.swift in Sources */,
+				0417FA4A297AA46D00C23D87 /* VoiceRow.swift in Sources */,
+				0417FA53297AFDB700C23D87 /* ActionBar.swift in Sources */,
+				0417FA74297D7EC000C23D87 /* PlayView.swift in Sources */,
+				0417FA85297D9EFF00C23D87 /* View.swift in Sources */,
+				0417FA5F297B65D300C23D87 /* AVSpeechSynthesisVoice.swift in Sources */,
+				0417FA48297AA29500C23D87 /* Row.swift in Sources */,
+				0417FA6B297D763E00C23D87 /* NameView.swift in Sources */,
+				0417FA83297D97A100C23D87 /* WebVM.swift in Sources */,
+				0417FA81297D978500C23D87 /* WebView.swift in Sources */,
+				0417FA3E297A9E2500C23D87 /* DraggableBar.swift in Sources */,
+				0417FA3A297A9D9A00C23D87 /* VoicesView.swift in Sources */,
+				0417FA6F297D7BC300C23D87 /* URL.swift in Sources */,
+				0417FA7F297D976500C23D87 /* URLPicker.swift in Sources */,
+				0417FA3F297A9E2500C23D87 /* DismissCross.swift in Sources */,
+				0417FA4C297AA7CB00C23D87 /* AVSpeechSynthesisVoiceGender.swift in Sources */,
+				0417FA7C297D8EDD00C23D87 /* ImagePicker.swift in Sources */,
+				0417FA71297D7C7500C23D87 /* String.swift in Sources */,
+				0417FA65297D70ED00C23D87 /* FilesVM.swift in Sources */,
+				0417FA4F297AED7900C23D87 /* Defaults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,15 +430,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Speak/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 4CQW4CFFYT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -295,15 +461,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Speak/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 4CQW4CFFYT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

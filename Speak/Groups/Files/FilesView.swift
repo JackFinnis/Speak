@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct FilesView: View {
     @Environment(\.scenePhase) var scenePhase
@@ -23,57 +24,57 @@ struct FilesView: View {
     var body: some View {
         NavigationView {
             List(filteredUrls, id: \.self) { url in
-                NavigationLink(url.name) {
-                    PlayView(url: url)
-                }
+                FileRow(url: url)
             }
-            .environmentObject(filesVM)
+            .animation(.default, value: filesVM.urls)
             .navigationTitle("Library")
             .navigationBarTitleDisplayMode(.large)
             .searchable(text: $text.animation(), placement: .navigationBarDrawer(displayMode: .always))
-            .overlay {
-                if filesVM.urls.isEmpty {
-                    ErrorLabel(systemName: "folder", title: "No Files Yet", message: "Tap + at the bottom right to create a new file and start speaking!")
-                        .padding(.horizontal)
-                        .padding(.bottom, 100)
-                }
+            .onDisappear {
+                filesVM.stop()
             }
-            .overlay(alignment: .bottomTrailing) {
-                Menu {
-                    Button {
-                        showURLPicker = true
-                    } label: {
-                        Label("Webpage", systemImage: "safari")
-                    }
-                    Button {
-                        pickerSourceType = .photoLibrary
-                    } label: {
-                        Label("Choose Photo", systemImage: "photo")
-                    }
-                    Button {
-                        pickerSourceType = .camera
-                    } label: {
-                        Label("Take Photo", systemImage: "camera")
-                    }
-                    Button {
-                        showPDFImporter = true
-                    } label: {
-                        Label("Import File", systemImage: "doc")
-                    }
-                    Button {
-                        filesVM.showSpeakView = true
-                    } label: {
-                        Label("Text", systemImage: "character.cursor.ibeam")
-                    }
+        }
+        .overlay {
+            if filesVM.urls.isEmpty {
+                ErrorLabel(systemName: "folder", title: "No Files Yet", message: "Tap the + at the bottom right to create a new file")
+                    .padding(.horizontal)
+            }
+        }
+        .overlay(alignment: .bottomTrailing) {
+            Menu {
+                Button {
+                    showURLPicker = true
                 } label: {
-                    Image(systemName: "plus")
-                        .font(.system(size: 24).bold())
-                        .foregroundColor(.white)
-                        .frame(width: 56, height: 56)
-                        .background(Color.accentColor)
-                        .clipShape(Circle())
-                        .padding()
+                    Label("Webpage", systemImage: "safari")
                 }
+                Button {
+                    pickerSourceType = .photoLibrary
+                } label: {
+                    Label("Choose Photo", systemImage: "photo")
+                }
+                Button {
+                    pickerSourceType = .camera
+                } label: {
+                    Label("Take Photo", systemImage: "camera")
+                }
+                Button {
+                    showPDFImporter = true
+                } label: {
+                    Label("Import File", systemImage: "doc")
+                }
+                Button {
+                    filesVM.showSpeakView = true
+                } label: {
+                    Label("Text", systemImage: "character.cursor.ibeam")
+                }
+            } label: {
+                Image(systemName: "plus")
+                    .font(.system(size: 24).bold())
+                    .foregroundColor(.white)
+                    .frame(width: 56, height: 56)
+                    .background(Color.accentColor)
+                    .clipShape(Circle())
+                    .padding()
             }
         }
         .sheet(isPresented: $filesVM.showSpeakView) {
@@ -86,7 +87,9 @@ struct FilesView: View {
         }
         .sheet(isPresented: $showURLPicker) {
             URLPicker { url in
-                filesVM.importWebpage(url)
+                Task {
+                    await filesVM.importWebpage(url)
+                }
             }
         }
         .fileImporter(isPresented: $showPDFImporter, allowedContentTypes: [.pdf, .text]) { result in
@@ -103,6 +106,7 @@ struct FilesView: View {
                 filesVM.fetchVoices()
             }
         }
+        .environmentObject(filesVM)
     }
 }
 

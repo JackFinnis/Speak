@@ -79,23 +79,24 @@ class SpeakVM: NSObject, ObservableObject {
         }
     }
     
-    func openSettings() {
-        if let url = URL(string: UIApplication.openSettingsURLString) {
-            UIApplication.shared.open(url)
-        }
-    }
-    
-    func export(name: String) {
-        var file: AVAudioFile?
+    func export(name: String, completion: @escaping (Bool) -> Void) {
         synthesizer.write(utterance(text)) { buffer in
             guard let buffer = buffer as? AVAudioPCMBuffer,
                   let path = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
             else { return }
-            if let file {
-                try? file.write(from: buffer)
-            } else {
+            
+            print(1)
+            
+            do {
+                print(2)
                 let url = path.appendingPathComponent("\(name).caf")
-                file = try? AVAudioFile(forWriting: url, settings: buffer.format.settings, commonFormat: .pcmFormatInt16, interleaved: false)
+                let file = try AVAudioFile(forWriting: url, settings: buffer.format.settings, commonFormat: buffer.format.commonFormat, interleaved: buffer.format.isInterleaved)
+                try file.write(from: buffer)
+                completion(true)
+            } catch {
+                print(3)
+                debugPrint(error)
+                completion(false)
             }
         }
     }

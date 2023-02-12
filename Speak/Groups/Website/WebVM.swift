@@ -9,6 +9,7 @@ import Foundation
 import WebKit
 
 class WebVM: NSObject, ObservableObject {
+    @Published var loading = false
     @Published var text = "https://"
     @Published var url: URL?
     
@@ -16,22 +17,17 @@ class WebVM: NSObject, ObservableObject {
     
     func submitUrl() {
         guard let url = URL(string: text) else { return }
+        self.url = nil
+        loading = true
         webView?.load(URLRequest(url: url))
     }
 }
 
 extension WebVM: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print(1)
         url = webView.url
-    }
-    
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        print(2)
-    }
-    
-    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        print(3)
+        text = url?.absoluteString ?? text
+        loading = false
+        Haptics.tap()
     }
 }
-

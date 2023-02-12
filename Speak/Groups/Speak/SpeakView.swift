@@ -14,6 +14,8 @@ struct SpeakView: View {
     @State var showNameView = false
     @State var showDeleteConfirmation = false
     
+    var empty: Bool { speakVM.text.trimmed.isEmpty }
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
@@ -37,11 +39,15 @@ struct SpeakView: View {
             .animation(.default, value: focused)
             .navigationTitle("Speak")
             .navigationBarTitleDisplayMode(.inline)
-            .interactiveDismissDisabled()
+            .interactiveDismissDisabled(!empty)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {
-                        showDeleteConfirmation = true
+                        if empty {
+                            dismiss()
+                        } else {
+                            showDeleteConfirmation = true
+                        }
                     }
                     .confirmationDialog("Delete Draft", isPresented: $showDeleteConfirmation) {
                         Button("Delete Draft", role: .destructive) {

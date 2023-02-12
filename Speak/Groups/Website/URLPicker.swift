@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct URLPicker: View {
+    @EnvironmentObject var filesVM: FilesVM
     @Environment(\.dismiss) var dismiss
     @StateObject var webVM = WebVM()
     @FocusState var focused: Bool
@@ -15,38 +16,48 @@ struct URLPicker: View {
     
     var body: some View {
         NavigationView {
-            WebView(webVM: webVM)
-                .ignoresSafeArea(edges: .bottom)
-                .searchable(text: $webVM.text, placement: .navigationBarDrawer(displayMode: .always))
-                .autocorrectionDisabled()
-                .textInputAutocapitalization(.never)
-                .onSubmit(of: .search) {
-                    webVM.submitUrl()
+            VStack(spacing: 0) {
+                ZStack {
+                    if webVM.loading {
+                        ProgressView()
+                    }
+                    WebView(webVM: webVM)
                 }
-                .navigationTitle("Enter Website")
-                .navigationBarTitleDisplayMode(.inline)
-                .onAppear {
-                    focused = true
-                }
-                .overlay(alignment: .bottom) {
-                    if let url = webVM.url {
-                        Button {
-                            completion(url)
-                            dismiss()
-                        } label: {
-                            Text("Import")
-                                .bigButton()
-                        }
-                        .padding()
+                
+                if let url = webVM.url {
+                    Button {
+                        completion(url)
+                        dismiss()
+                    } label: {
+                        Text("Import")
+                            .font(.headline)
+                            .padding()
+                            .horizontallyCentred()
+                            .foregroundColor(.white)
+                            .background(Color.accentColor.ignoresSafeArea())
                     }
                 }
-                .toolbar {
-                    ToolbarItem(placement: .cancellationAction) {
-                        Button("Cancel") {
-                            dismiss()
-                        }
+            }
+            .interactiveDismissDisabled(webVM.url != nil)
+            .ignoresSafeArea(edges: .bottom)
+            .searchable(text: $webVM.text, placement: .navigationBarDrawer(displayMode: .always))
+            .autocorrectionDisabled()
+            .textInputAutocapitalization(.never)
+            .onSubmit(of: .search) {
+                webVM.submitUrl()
+            }
+            .navigationTitle("Enter Website")
+            .navigationBarTitleDisplayMode(.inline)
+            .onAppear {
+                focused = true
+            }
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cancel") {
+                        dismiss()
                     }
                 }
+            }
         }
     }
 }

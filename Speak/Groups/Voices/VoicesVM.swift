@@ -19,7 +19,7 @@ class VoicesVM: NSObject, ObservableObject {
     }
     
     func greet(voice: AVSpeechSynthesisVoice) {
-        speaking = voice
+        stop()
         let utterance = AVSpeechUtterance(string: "Hello, my name is \(voice.name). I am a \(voice.languageName) voice from \(voice.country)")
         utterance.voice = voice
         synthesizer.speak(utterance)
@@ -31,6 +31,10 @@ class VoicesVM: NSObject, ObservableObject {
 }
 
 extension VoicesVM: AVSpeechSynthesizerDelegate {
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
+        speaking = utterance.voice
+    }
+    
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         speaking = nil
     }

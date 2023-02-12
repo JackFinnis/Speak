@@ -49,7 +49,13 @@ struct NameView: View {
                         let trimmed = name.trimmed
                         taken = filesVM.nameTaken(trimmed)
                         if !taken {
-                            speakVM.export(name: trimmed)
+                            speakVM.export(name: trimmed) { success in
+                                if success {
+                                    dismiss()
+                                    filesVM.showSpeakView = false
+                                    filesVM.fetchFiles()
+                                }
+                            }
                         }
                     }
                     .font(.headline)

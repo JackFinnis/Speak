@@ -58,7 +58,7 @@ struct VoicesView: View {
                         .alert("Add Voices", isPresented: $showAddAlert) {
                             Button("Cancel") {}
                             Button("Settings", role: .cancel) {
-                                speakVM.openSettings()
+                                filesVM.openSettings()
                             }
                         } message: {
                             Text("You can download higher quality voices for free in the Settings app under Accessibility > Spoken Content > Voices. Any voices you download there will appear in this list.")

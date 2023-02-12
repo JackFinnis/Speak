@@ -9,15 +9,21 @@ import Foundation
 import AVFoundation
 import PDFKit
 import Vision
+import SwiftSoup
 
-class FilesVM: ObservableObject {
+@MainActor
+class FilesVM: NSObject, ObservableObject {
     @Published var urls = [URL]()
     @Published var voices = [AVSpeechSynthesisVoice]()
     @Published var text = ""
     @Published var showSpeakView = false
+    @Published var player = AVAudioPlayer()
+    @Published var url: URL?
     
-    init() {
+    override init() {
+        super.init()
         fetchFiles()
+        fetchVoices()
     }
     
     func fetchFiles() {
@@ -64,10 +70,53 @@ class FilesVM: ObservableObject {
         try? handler.perform([request])
     }
     
-    func importWebpage(_ url: URL) {
-        if let string = try? String(contentsOf: url) {
-            text = string
-            showSpeakView = true
+    func importWebpage(_ url: URL) async {
+        guard let (data, _) = try? await URLSession.shared.data(from: url),
+              let html = String(data: data, encoding: .utf8),
+              let string = try? SwiftSoup.parse(html).text()
+        else { return }
+        
+        text = string
+        showSpeakView = true
+    }
+    
+    func openSettings() {
+        if let url = URL(string: UIApplication.openSettingsURLString) {
+            UIApplication.shared.open(url)
         }
+    }
+    
+    func delete(url: URL) {
+        try? FileManager.default.removeItem(at: url)
+        fetchFiles()
+        if self.url == url {
+            stop()
+        }
+    }
+    
+    func play(url: URL) {
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player.delegate = self
+            player.play()
+            self.url = url
+        } catch {
+            debugPrint(error)
+        }
+    }
+    
+    func stop() {
+        player.stop()
+        url = nil
+    }
+}
+
+extension FilesVM: AVAudioPlayerDelegate {
+    func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
+        url = nil
+    }
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        url = nil
     }
 }

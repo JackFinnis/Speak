@@ -27,7 +27,6 @@
 		0417FA6D297D77AC00C23D87 /* ClearCross.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA6C297D77AC00C23D87 /* ClearCross.swift */; };
 		0417FA6F297D7BC300C23D87 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA6E297D7BC300C23D87 /* URL.swift */; };
 		0417FA71297D7C7500C23D87 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA70297D7C7500C23D87 /* String.swift */; };
-		0417FA74297D7EC000C23D87 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA73297D7EC000C23D87 /* PlayView.swift */; };
 		0417FA7A297D83D100C23D87 /* ErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA79297D83D100C23D87 /* ErrorLabel.swift */; };
 		0417FA7C297D8EDD00C23D87 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA7B297D8EDC00C23D87 /* ImagePicker.swift */; };
 		0417FA7F297D976500C23D87 /* URLPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA7E297D976500C23D87 /* URLPicker.swift */; };
@@ -36,6 +35,9 @@
 		0417FA85297D9EFF00C23D87 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA84297D9EFF00C23D87 /* View.swift */; };
 		04E3833B294D319B0070AC9B /* SpeakApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E3833A294D319B0070AC9B /* SpeakApp.swift */; };
 		04E3833F294D319C0070AC9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E3833E294D319C0070AC9B /* Assets.xcassets */; };
+		04F582CB29816DAD00C62E0D /* FileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F582CA29816DAD00C62E0D /* FileRow.swift */; };
+		04F582CE29817D0A00C62E0D /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 04F582CD29817D0A00C62E0D /* SwiftSoup */; };
+		04F582D02981804900C62E0D /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F582CF2981804900C62E0D /* Haptics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,7 +61,6 @@
 		0417FA6C297D77AC00C23D87 /* ClearCross.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearCross.swift; sourceTree = "<group>"; };
 		0417FA6E297D7BC300C23D87 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		0417FA70297D7C7500C23D87 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		0417FA73297D7EC000C23D87 /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 		0417FA79297D83D100C23D87 /* ErrorLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorLabel.swift; sourceTree = "<group>"; };
 		0417FA7B297D8EDC00C23D87 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		0417FA7E297D976500C23D87 /* URLPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLPicker.swift; sourceTree = "<group>"; };
@@ -69,6 +70,8 @@
 		04E38337294D319B0070AC9B /* Speak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Speak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E3833A294D319B0070AC9B /* SpeakApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakApp.swift; sourceTree = "<group>"; };
 		04E3833E294D319C0070AC9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04F582CA29816DAD00C62E0D /* FileRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileRow.swift; sourceTree = "<group>"; };
+		04F582CF2981804900C62E0D /* Haptics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F582CE29817D0A00C62E0D /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,7 +105,6 @@
 			children = (
 				0417FA61297D6EB700C23D87 /* Files */,
 				0417FA7D297D972600C23D87 /* Website */,
-				0417FA72297D7EA500C23D87 /* Play */,
 				0417FA57297B427A00C23D87 /* Speak */,
 				0417FA58297B428800C23D87 /* Voices */,
 				0417FA3B297A9DFA00C23D87 /* Extra */,
@@ -125,6 +128,7 @@
 		0417FA4D297AED6600C23D87 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				04F582CF2981804900C62E0D /* Haptics.swift */,
 				0417FA4E297AED7900C23D87 /* Defaults.swift */,
 			);
 			path = Helpers;
@@ -155,17 +159,10 @@
 			isa = PBXGroup;
 			children = (
 				0417FA66297D720D00C23D87 /* FilesView.swift */,
+				04F582CA29816DAD00C62E0D /* FileRow.swift */,
 				0417FA64297D70ED00C23D87 /* FilesVM.swift */,
 			);
 			path = Files;
-			sourceTree = "<group>";
-		};
-		0417FA72297D7EA500C23D87 /* Play */ = {
-			isa = PBXGroup;
-			children = (
-				0417FA73297D7EC000C23D87 /* PlayView.swift */,
-			);
-			path = Play;
 			sourceTree = "<group>";
 		};
 		0417FA7D297D972600C23D87 /* Website */ = {
@@ -222,6 +219,9 @@
 			dependencies = (
 			);
 			name = Speak;
+			packageProductDependencies = (
+				04F582CD29817D0A00C62E0D /* SwiftSoup */,
+			);
 			productName = Speak;
 			productReference = 04E38337294D319B0070AC9B /* Speak.app */;
 			productType = "com.apple.product-type.application";
@@ -250,6 +250,9 @@
 				Base,
 			);
 			mainGroup = 04E3832E294D319B0070AC9B;
+			packageReferences = (
+				04F582CC29817D0A00C62E0D /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+			);
 			productRefGroup = 04E38338294D319B0070AC9B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -285,9 +288,10 @@
 				0417FA46297AA13100C23D87 /* AVSpeechSynthesisVoiceQuality.swift in Sources */,
 				0417FA55297B3B2B00C23D87 /* Collection.swift in Sources */,
 				0417FA4A297AA46D00C23D87 /* VoiceRow.swift in Sources */,
+				04F582D02981804900C62E0D /* Haptics.swift in Sources */,
 				0417FA53297AFDB700C23D87 /* ActionBar.swift in Sources */,
-				0417FA74297D7EC000C23D87 /* PlayView.swift in Sources */,
 				0417FA85297D9EFF00C23D87 /* View.swift in Sources */,
+				04F582CB29816DAD00C62E0D /* FileRow.swift in Sources */,
 				0417FA5F297B65D300C23D87 /* AVSpeechSynthesisVoice.swift in Sources */,
 				0417FA48297AA29500C23D87 /* Row.swift in Sources */,
 				0417FA6B297D763E00C23D87 /* NameView.swift in Sources */,
@@ -507,6 +511,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		04F582CC29817D0A00C62E0D /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 2.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		04F582CD29817D0A00C62E0D /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04F582CC29817D0A00C62E0D /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 04E3832F294D319B0070AC9B /* Project object */;
 }

@@ -14,9 +14,10 @@ struct FilesView: View {
     @StateObject var filesVM = FilesVM()
     @State var showPDFImporter = false
     @State var showURLPicker = false
-    @State var pickerSourceType: UIImagePickerController.SourceType?
-    
+    @State var showCamera = false
+    @State var showPhotoLibrary = false
     @State var text = ""
+    
     var filteredUrls: [URL] {
         filesVM.urls.filter { text.isEmpty || $0.name.localizedCaseInsensitiveContains(text) }
     }
@@ -48,12 +49,12 @@ struct FilesView: View {
                     Label("Webpage", systemImage: "safari")
                 }
                 Button {
-                    pickerSourceType = .photoLibrary
+                    showPhotoLibrary = true
                 } label: {
                     Label("Choose Photo", systemImage: "photo")
                 }
                 Button {
-                    pickerSourceType = .camera
+                    showCamera = true
                 } label: {
                     Label("Take Photo", systemImage: "camera")
                 }
@@ -63,6 +64,7 @@ struct FilesView: View {
                     Label("Import File", systemImage: "doc")
                 }
                 Button {
+                    filesVM.text = ""
                     filesVM.showSpeakView = true
                 } label: {
                     Label("Text", systemImage: "character.cursor.ibeam")
@@ -80,8 +82,13 @@ struct FilesView: View {
         .sheet(isPresented: $filesVM.showSpeakView) {
             SpeakView(speakVM: SpeakVM(text: filesVM.text))
         }
-        .sheet(item: $pickerSourceType) { type in
-            ImagePicker(sourceType: type) { uiImage in
+        .sheet(isPresented: $showPhotoLibrary) {
+            ImagePicker(sourceType: .photoLibrary) { uiImage in
+                filesVM.importImage(uiImage)
+            }
+        }
+        .fullScreenCover(isPresented: $showCamera) {
+            ImagePicker(sourceType: .camera) { uiImage in
                 filesVM.importImage(uiImage)
             }
         }

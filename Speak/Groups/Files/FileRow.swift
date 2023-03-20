@@ -49,7 +49,7 @@ struct FileRow: View {
                 Label("Delete File", systemImage: "trash")
             }
         }
-        .confirmationDialog("Delete File?", isPresented: $showDeleteConfirmation) {
+        .confirmationDialog("This file will be deleted. This action cannot be undone.", isPresented: $showDeleteConfirmation, titleVisibility: .visible) {
             Button("Delete File", role: .destructive) {
                 filesVM.delete(url: url)
             }

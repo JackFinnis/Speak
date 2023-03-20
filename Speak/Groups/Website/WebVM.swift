@@ -28,6 +28,5 @@ extension WebVM: WKNavigationDelegate {
         url = webView.url
         text = url?.absoluteString ?? text
         loading = false
-        Haptics.tap()
     }
 }

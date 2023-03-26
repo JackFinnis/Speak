@@ -28,7 +28,7 @@ struct FilesView: View {
                 FileRow(url: url)
             }
             .animation(.default, value: filesVM.urls)
-            .navigationTitle("Library")
+            .navigationTitle("Recordings")
             .navigationBarTitleDisplayMode(.large)
             .searchable(text: $text.animation(), placement: .navigationBarDrawer(displayMode: .always))
             .onDisappear {
@@ -37,7 +37,7 @@ struct FilesView: View {
         }
         .overlay {
             if filesVM.urls.isEmpty {
-                ErrorLabel(systemName: "folder", title: "No Files Yet", message: "Tap the + at the bottom right to create a new file")
+                BigLabel(systemName: "person.wave.2.fill", title: "No Recordings Yet", message: "Tap the + at the bottom right to\nmake a new recording.")
                     .padding(.horizontal)
             }
         }
@@ -46,7 +46,12 @@ struct FilesView: View {
                 Button {
                     showURLPicker = true
                 } label: {
-                    Label("Webpage", systemImage: "safari")
+                    Label("Import Webpage", systemImage: "safari")
+                }
+                Button {
+                    showPDFImporter = true
+                } label: {
+                    Label("Import File", systemImage: "doc")
                 }
                 Button {
                     showPhotoLibrary = true
@@ -59,21 +64,16 @@ struct FilesView: View {
                     Label("Take Photo", systemImage: "camera")
                 }
                 Button {
-                    showPDFImporter = true
-                } label: {
-                    Label("Import File", systemImage: "doc")
-                }
-                Button {
                     filesVM.text = ""
                     filesVM.showSpeakView = true
                 } label: {
-                    Label("Text", systemImage: "character.cursor.ibeam")
+                    Label("Type Text", systemImage: "character.cursor.ibeam")
                 }
             } label: {
                 Image(systemName: "plus")
-                    .font(.system(size: 24).bold())
+                    .font(.title2.weight(.semibold))
                     .foregroundColor(.white)
-                    .frame(width: 56, height: 56)
+                    .frame(width: 50, height: 50)
                     .background(Color.accentColor)
                     .clipShape(Circle())
                     .padding()

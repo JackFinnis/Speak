@@ -21,7 +21,7 @@ struct FileRow: View {
                 filesVM.play(url: url)
             }
         } label: {
-            HStack {
+            HStack(spacing: 15) {
                 Group {
                     if filesVM.url == url {
                         Image(systemName: "stop.fill")
@@ -29,7 +29,8 @@ struct FileRow: View {
                         Image(systemName: "play.fill")
                     }
                 }
-                .frame(width: 25)
+                .frame(width: 30)
+                .font(.title2)
                 
                 Text(url.name)
                     .foregroundColor(.primary)

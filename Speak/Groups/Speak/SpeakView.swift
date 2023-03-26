@@ -60,6 +60,7 @@ struct SpeakView: View {
                     Button("Save") {
                         showNameView = true
                     }
+                    .disabled(speakVM.text.isEmpty)
                     .font(.headline)
                 }
                 ToolbarItem(placement: .keyboard) {

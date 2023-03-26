@@ -17,13 +17,19 @@ class FilesVM: NSObject, ObservableObject {
     @Published var voices = [AVSpeechSynthesisVoice]()
     @Published var text = ""
     @Published var showSpeakView = false
-    @Published var player = AVAudioPlayer()
+    @Published var player: AVAudioPlayer?
     @Published var url: URL?
     
     override init() {
         super.init()
         fetchFiles()
         fetchVoices()
+        startAudioSession()
+    }
+    
+    func startAudioSession() {
+        try? AVAudioSession.sharedInstance().setCategory(.playback)
+        try? AVAudioSession.sharedInstance().setActive(true)
     }
     
     func fetchFiles() {
@@ -62,8 +68,8 @@ class FilesVM: NSObject, ObservableObject {
         guard let cgImage = uiImage?.cgImage else { return }
         let handler = VNImageRequestHandler(cgImage: cgImage)
         let request = VNRecognizeTextRequest { request, error in
-            guard let observations = request.results as? [VNRecognizedTextObservation] else { return }
-            self.text = observations.compactMap { $0.topCandidates(1).first?.string }.joined()
+            guard let observations = request.results as? [VNRecognizedTextObservation], observations.isNotEmpty else { return }
+            self.text = observations.compactMap { $0.topCandidates(1).first?.string }.joined(separator: " ")
             self.showSpeakView = true
         }
         request.recognitionLevel = .accurate
@@ -97,8 +103,9 @@ class FilesVM: NSObject, ObservableObject {
     func play(url: URL) {
         do {
             player = try AVAudioPlayer(contentsOf: url)
-            player.delegate = self
-            player.play()
+            player?.delegate = self
+            player?.volume = 1
+            player?.play()
             self.url = url
         } catch {
             debugPrint(error)
@@ -106,7 +113,7 @@ class FilesVM: NSObject, ObservableObject {
     }
     
     func stop() {
-        player.stop()
+        player?.stop()
         url = nil
     }
 }

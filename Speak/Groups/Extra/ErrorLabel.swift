@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ErrorLabel: View {
+struct BigLabel: View {
     let systemName: String
     let title: String
     let message: String
@@ -16,6 +16,7 @@ struct ErrorLabel: View {
         VStack(spacing: 10) {
             Image(systemName: systemName)
                 .font(.system(size: 40))
+                .symbolRenderingMode(.hierarchical)
                 .foregroundColor(.secondary)
             VStack(spacing: 5) {
                 Text(title)

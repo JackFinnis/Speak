@@ -85,16 +85,12 @@ class SpeakVM: NSObject, ObservableObject {
                   let path = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
             else { return }
             
-            print(1)
-            
             do {
-                print(2)
                 let url = path.appendingPathComponent("\(name).caf")
                 let file = try AVAudioFile(forWriting: url, settings: buffer.format.settings, commonFormat: buffer.format.commonFormat, interleaved: buffer.format.isInterleaved)
                 try file.write(from: buffer)
                 completion(true)
             } catch {
-                print(3)
                 debugPrint(error)
                 completion(false)
             }

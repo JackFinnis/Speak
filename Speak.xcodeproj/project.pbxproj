@@ -175,6 +175,14 @@
 			path = Website;
 			sourceTree = "<group>";
 		};
+		04265B7F29D105BD00D7B588 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				04E3833E294D319C0070AC9B /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		04E3832E294D319B0070AC9B = {
 			isa = PBXGroup;
 			children = (
@@ -195,10 +203,10 @@
 			isa = PBXGroup;
 			children = (
 				04E3833A294D319B0070AC9B /* SpeakApp.swift */,
-				04E3833E294D319C0070AC9B /* Assets.xcassets */,
 				0417FA43297A9FB600C23D87 /* Groups */,
 				0417FA4D297AED6600C23D87 /* Helpers */,
 				0417FA44297AA11E00C23D87 /* Extensions */,
+				04265B7F29D105BD00D7B588 /* Resources */,
 			);
 			path = Speak;
 			sourceTree = "<group>";

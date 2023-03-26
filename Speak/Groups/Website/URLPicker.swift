@@ -11,7 +11,6 @@ struct URLPicker: View {
     @EnvironmentObject var filesVM: FilesVM
     @Environment(\.dismiss) var dismiss
     @StateObject var webVM = WebVM()
-    @FocusState var focused: Bool
     let completion: (URL) -> Void
     
     var body: some View {
@@ -48,9 +47,6 @@ struct URLPicker: View {
             }
             .navigationTitle("Enter Website")
             .navigationBarTitleDisplayMode(.inline)
-            .onAppear {
-                focused = true
-            }
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {

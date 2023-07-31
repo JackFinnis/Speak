@@ -1,5 +1,5 @@
 //
-//  ErrorLabel.swift
+//  BigLabel.swift
 //  News
 //
 //  Created by Jack Finnis on 13/01/2023.
@@ -15,13 +15,14 @@ struct BigLabel: View {
     var body: some View {
         VStack(spacing: 10) {
             Image(systemName: systemName)
-                .font(.system(size: 40))
+                .font(.largeTitle)
                 .symbolRenderingMode(.hierarchical)
                 .foregroundColor(.secondary)
             VStack(spacing: 5) {
                 Text(title)
                     .font(.title3.bold())
                 Text(message)
+                    .font(.subheadline)
                     .padding(.horizontal)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.center)

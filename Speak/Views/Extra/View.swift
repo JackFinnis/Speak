@@ -9,7 +9,7 @@ import SwiftUI
 
 extension View {
     func horizontallyCentred() -> some View {
-        HStack {
+        HStack(spacing: 0) {
             Spacer(minLength: 0)
             self
             Spacer(minLength: 0)
@@ -18,12 +18,21 @@ extension View {
     
     func bigButton() -> some View {
         self
-            .font(.body.bold())
+            .font(.headline)
             .padding()
             .horizontallyCentred()
             .foregroundColor(.white)
             .background(Color.accentColor)
-            .cornerRadius(15)
+            .continuousRadius(15)
+    }
+    
+    func continuousRadius(_ cornerRadius: CGFloat) -> some View {
+        clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
+    }
+    
+    func shadow() -> some View {
+        self.compositingGroup()
+            .shadow(color: Color.black.opacity(0.2), radius: 5, y: 5)
     }
     
     @ViewBuilder

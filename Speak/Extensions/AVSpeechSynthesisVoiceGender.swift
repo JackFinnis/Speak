@@ -9,7 +9,7 @@ import Foundation
 import AVFoundation
 
 extension AVSpeechSynthesisVoiceGender {
-    static let allCases = [AVSpeechSynthesisVoiceGender.male, .female, .unspecified]
+    static let allCases: [AVSpeechSynthesisVoiceGender] = [.male, .female, .unspecified]
     
     var name: String {
         switch self {

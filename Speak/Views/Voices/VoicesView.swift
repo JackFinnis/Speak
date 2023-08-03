@@ -13,7 +13,6 @@ struct VoicesView: View {
     @EnvironmentObject var speakVM: SpeakVM
     @StateObject var voicesVM = VoicesVM()
     @State var showAddVoicesAlert = false
-    
     @State var searchText = ""
     
     var filteredVoices: [AVSpeechSynthesisVoice] {
@@ -29,13 +28,12 @@ struct VoicesView: View {
     var body: some View {
         NavigationView {
             List {
+                ListBuffer(isPresented: filteredVoices.isEmpty)
                 ForEach(groupedByQuality.keys.sorted { $0.rawValue > $1.rawValue }, id: \.self) { quality in
-                    let groupedByCountry = Dictionary(grouping: groupedByQuality[quality]!, by: \.country)
+                    let groupedByCountry = Dictionary(grouping: groupedByQuality[quality]!, by: \.locale.countryName)
                     
-                    Text(quality.name)
-                        .font(.title)
-                        .listRowBackground(Color.clear)
-                        .listRowInsets(.init())
+                    Section(quality.name) {}
+                        .headerProminence(.increased)
                     ForEach(groupedByCountry.keys.sorted { $0 < $1 }, id: \.self) { country in
                         let voices = groupedByCountry[country]!
                         
@@ -48,7 +46,6 @@ struct VoicesView: View {
                 }
             }
             .animation(.default, value: filesVM.voices)
-            .searchable(text: $searchText.animation(), placement: .navigationBarDrawer(displayMode: .always))
             .navigationTitle("Select Voice")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -57,14 +54,15 @@ struct VoicesView: View {
                         showAddVoicesAlert = true
                     } label: {
                         Image(systemName: "plus")
+                            .imageScale(.large)
                     }
-                    .alert("Add Voices", isPresented: $showAddVoicesAlert) {
-                        Button("Cancel") {}
-                        Button("Settings", role: .cancel) {
+                    .alert("Download More Voices", isPresented: $showAddVoicesAlert) {
+                        Button("Cancel", role: .cancel) {}
+                        Button("Open Settings") {
                             filesVM.openSettings()
                         }
                     } message: {
-                        Text("You can download higher quality voices for free in the Settings app under Accessibility > Spoken Content > Voices. Any voices you download there will appear in this list.")
+                        Text("You can download higher quality voices for free in the Settings app under Accessibility > Spoken Content > Voices.")
                     }
                 }
                 ToolbarItem(placement: .primaryAction) {
@@ -75,17 +73,24 @@ struct VoicesView: View {
                 }
             }
         }
-        .onDisappear {
-            voicesVM.stop()
-        }
-    }
-}
-
-struct VoicesView_Previews: PreviewProvider {
-    static var previews: some View {
-        Text("")
-            .sheet(isPresented: .constant(true)) {
-                VoicesView()
+        .overlay {
+            if filesVM.voices.isEmpty {
+                VStack {
+                    BigLabel(systemName: "person.wave.2.fill", title: "No Voices Available", message: "Please download voices in the Settings app under Accessibility > Spoken Content > Voices.")
+                    Button("Open Settings") {
+                        filesVM.openSettings()
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
+            } else if filteredVoices.isEmpty {
+                Text("No Results Found")
+                    .font(.title3)
+                    .foregroundColor(.secondary)
             }
+        }
+        .onDisappear {
+            voicesVM.stopSpeaking()
+        }
+        .environmentObject(voicesVM)
     }
 }

@@ -13,66 +13,49 @@ struct SpeakBar: View {
     var body: some View {
         GeometryReader { geo in
             HStack(spacing: 0) {
-                VStack {
+                let width = (geo.size.width - 50) / 2
+                
+                VStack(spacing: 0) {
                     Text("Voice")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
-                    Button(speakVM.selectedVoice == nil ? "Select" : speakVM.selectedVoice!.name) {
-                        speakVM.showVoicesView = true
-                    }
-                }
-                .frame(width: geo.size.width / 3)
-                
-                HStack {
-                    if !speakVM.isSpeaking {
-                        Button {
-                            speakVM.start()
-                        } label: {
-                            Image(systemName: "play.fill")
-                        }
-                        .frame(width: 40)
-                    } else if speakVM.isPaused {
-                        Button {
-                            speakVM.resume()
-                        } label: {
-                            Image(systemName: "play.fill")
-                        }
-                        .frame(width: 40)
-                    } else {
-                        Button {
-                            speakVM.pause()
-                        } label: {
-                            Image(systemName: "pause.fill")
-                        }
-                        .frame(width: 40)
-                    }
+                    Spacer(minLength: 0)
                     Button {
-                        speakVM.stop()
+                        speakVM.showVoicesView = true
+                        speakVM.pauseSpeaking()
                     } label: {
-                        Image(systemName: "stop.fill")
+                        Text(speakVM.voice == nil ? "Select" : speakVM.voice!.firstName)
+                            .font(.system(size: 20))
                     }
-                    .frame(width: 40)
-                    .disabled(!speakVM.isSpeaking)
+                    Spacer(minLength: 0)
                 }
-                .padding(10)
-                .background(Color(.systemBackground))
-                .continuousRadius(5)
-                .frame(width: geo.size.width / 3)
+                .frame(width: width)
                 
-                VStack {
+                Button {
+                    speakVM.toggleSpeaking()
+                } label: {
+                    Image(systemName: "\(speakVM.state == .speaking ? "pause.fill" : "play.fill")")
+                        .frame(width: 50, height: 50)
+                }
+                .font(.title)
+                .background(Color(.systemBackground))
+                .clipShape(Circle())
+                
+                VStack(spacing: 0) {
                     Text("Speed")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
+                    Spacer(minLength: 0)
                     Stepper("", value: $speakVM.rate, in: 0...1, step: 0.05)
-                        .frame(width: geo.size.width / 3)
                         .labelsHidden()
+                    Spacer(minLength: 0)
                 }
-                .frame(width: geo.size.width / 3)
+                .frame(width: width)
             }
             .frame(height: geo.size.height)
         }
-        .frame(height: 100)
-        .font(.title2)
+        .frame(height: 60)
+        .padding(.vertical, 5)
         .background(Color(.systemFill).ignoresSafeArea())
     }
 }

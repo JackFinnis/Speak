@@ -12,37 +12,52 @@ import SwiftUI
 
 @MainActor
 class FilesVM: ObservableObject {
+    static let shared = FilesVM()
+    
     // MARK: - Properties
     @Published var files = [File]()
     
-    @Published var selectedFile: File?
+    @Published var showSpeakView = false
+    @Published var selectedFile: File? { didSet {
+        showSpeakView = true
+    }}
     
-    @Published var searchText = ""
     @Published var filteredFiles = [File]()
+    @Published var searchText = "" { didSet {
+        filterFiles()
+    }}
     
     @Published var voices = [AVSpeechSynthesisVoice]()
     
-    @Published var showErrorAlert = false
-    var error: SpeakError? { didSet {
-        showErrorAlert = true
-    }}
+    // Storage
+    @Storage("filesCreated") var filesCreated = 0
     
     // Persistence
     let container = NSPersistentCloudKitContainer(name: "Speak")
     func save() {
         try? container.viewContext.save()
+        filterFiles()
     }
     
     // MARK: - Initialiser
     init() {
         fetchFiles()
+        fetchVoices()
     }
     
     // MARK: - Methods
     func fetchFiles() {
         container.loadPersistentStores { description, error in
             self.files = self.fetch(File.self)
+            self.filterFiles()
         }
+    }
+    
+    func filterFiles() {
+        filteredFiles = files.filter { file in
+            searchText.isEmpty || file.name.localizedCaseInsensitiveContains(searchText)
+        }
+        .sorted { $0.recentDate > $1.recentDate }
     }
     
     func fetch<T: NSManagedObject>(_ entity: T.Type) -> [T] {
@@ -51,42 +66,31 @@ class FilesVM: ObservableObject {
     
     func fetchVoices() {
         voices = AVSpeechSynthesisVoice.speechVoices().filter { voice in
-            !voice.novelty &&
-            voice.language.prefix(2) == AVSpeechSynthesisVoice.currentLanguageCode().prefix(2)
+            !voice.isNovelty &&
+            voice.locale.languageCode == Locale.current.languageCode
         }
     }
     
-    func importFile(url: URL) {
-        guard url.startAccessingSecurityScopedResource() else {
-            error = .openFile
-            return
-        }
-        
-        let text: String
-        do {
-            text = try String(contentsOf: url)
-            url.stopAccessingSecurityScopedResource()
-        } catch {
-            self.error = .readFile
-            return
-        }
-        
-        createFile(text: text)
-    }
-    
-    func createFile(text: String = "") {
+    func createFile() {
+        filesCreated += 1
         let file = File(context: container.viewContext)
-        file.name = "New File"
-        file.text = text
+        file.name = "New File \(filesCreated)"
+        file.text = ""
         file.recentDate = .now
         save()
         selectedFile = file
     }
     
     func deleteFile(_ file: File) {
-        container.viewContext.delete(file)
         files.removeAll(file)
+        container.viewContext.delete(file)
         save()
+        showSpeakView = false
+    }
+    
+    func deleteFiles(at offsets: IndexSet) {
+        let files = offsets.map { filteredFiles[$0] }
+        files.forEach(deleteFile)
     }
     
     func openSettings() {

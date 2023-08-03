@@ -14,39 +14,24 @@ struct VoiceRow: View {
     
     let voice: AVSpeechSynthesisVoice
     
+    var selected: Bool { speakVM.voice == voice }
+    
     var body: some View {
         Button {
-            speakVM.selectedVoice = voice
+            speakVM.voice = voice
+            voicesVM.greet(voice: voice)
         } label: {
             HStack {
-                Group {
-                    if voicesVM.speaking == voice {
-                        Button {
-                            voicesVM.stop()
-                        } label: {
-                            Image(systemName: "stop.fill")
-                        }
-                    } else {
-                        Button {
-                            voicesVM.greet(voice: voice)
-                        } label: {
-                            Image(systemName: "play.fill")
-                        }
-                    }
-                }
-                .buttonStyle(.borderless)
-                .frame(width: 25)
-                Text(voice.name)
-                    .foregroundColor(.primary)
-                
-                Spacer()
-                Text(voice.gender.initial)
-                    .foregroundColor(.primary)
-                if speakVM.selectedVoice == voice {
+                if selected {
                     Image(systemName: "checkmark")
                         .font(.headline)
                         .foregroundColor(.accentColor)
                 }
+                Text(voice.name)
+                    .foregroundColor(.primary)
+                Spacer()
+                Text(voice.gender.initial)
+                    .foregroundColor(.primary)
             }
         }
     }

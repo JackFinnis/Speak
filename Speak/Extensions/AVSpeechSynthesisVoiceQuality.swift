@@ -18,7 +18,7 @@ extension AVSpeechSynthesisVoiceQuality {
         case .premium:
             return "Premium"
         @unknown default:
-            return ""
+            return "Other"
         }
     }
 }

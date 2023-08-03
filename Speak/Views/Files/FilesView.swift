@@ -10,66 +10,65 @@ import AVFoundation
 
 struct FilesView: View {
     @Environment(\.scenePhase) var scenePhase
-    @StateObject var filesVM = FilesVM()
-    @State var showFileImporter = false
+    @StateObject var filesVM = FilesVM.shared
+    @State var isEditing = false
     
     var body: some View {
         NavigationView {
-            List(filesVM.filteredFiles, id: \.self) { file in
-                FileRow(file: file)
+            List {
+                ListBuffer(isPresented: filesVM.filteredFiles.isEmpty)
+                ForEach(filesVM.filteredFiles) { file in
+                    FileRow(isEditing: $isEditing, file: file)
+                }
+                .onDelete { offsets in
+                    filesVM.deleteFiles(at: offsets)
+                }
             }
-            .animation(.default, value: filesVM.files)
+            .animation(.default, value: filesVM.filteredFiles)
             .navigationTitle("Files")
             .navigationBarTitleDisplayMode(.large)
             .searchable(text: $filesVM.searchText.animation(), placement: .navigationBarDrawer(displayMode: .always))
+            .background {
+                NavigationLink("", isActive: $filesVM.showSpeakView) {
+                    if let file = filesVM.selectedFile {
+                        SpeakView(speakVM: SpeakVM(file: file))
+                    }
+                }
+            }
+            .overlay(alignment: .bottomTrailing) {
+                if !isEditing {
+                    Button {
+                        filesVM.createFile()
+                    } label: {
+                        Image(systemName: "plus")
+                            .font(.title2.weight(.semibold))
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.accentColor)
+                            .clipShape(Circle())
+                            .shadow()
+                    }
+                    .padding()
+                }
+            }
         }
         .overlay {
             if filesVM.files.isEmpty {
-                BigLabel(systemName: "person.wave.2.fill", title: "No Recordings Yet", message: "Tap the + at the bottom right to\nmake a new recording.")
-                    .padding(.horizontal)
+                BigLabel(systemName: "person.wave.2.fill", title: "No Files Yet", message: "Tap the + at the bottom right\nto make a new file.")
+            } else if filesVM.filteredFiles.isEmpty {
+                Text("No Results Found")
+                    .font(.title3)
+                    .foregroundColor(.secondary)
             }
-        }
-        .overlay(alignment: .bottomTrailing) {
-            Menu {
-                Button {
-                    showFileImporter = true
-                } label: {
-                    Label("Import File", systemImage: "doc")
-                }
-                Button {
-                    filesVM.createFile()
-                } label: {
-                    Label("Type Text", systemImage: "character.cursor.ibeam")
-                }
-            } label: {
-                Image(systemName: "plus")
-                    .font(.title2.weight(.semibold))
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.accentColor)
-                    .clipShape(Circle())
-                    .shadow()
-            }
-            .padding()
-        }
-        .sheet(item: $filesVM.selectedFile) { file in
-            SpeakView(speakVM: SpeakVM(file: file))
         }
         .onChange(of: scenePhase) { newPhase in
             if scenePhase == .active {
                 filesVM.fetchVoices()
             }
         }
-        .fileImporter(isPresented: $showFileImporter, allowedContentTypes: [.text]) { result in
-            switch result {
-            case .success(let url):
-                filesVM.importFile(url: url)
-            case .failure(let error):
-                debugPrint(error)
-            }
-        }
         .navigationViewStyle(.stack)
         .environmentObject(filesVM)
+        .animation(.default, value: isEditing)
     }
 }
 

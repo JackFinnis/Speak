@@ -13,4 +13,5 @@ class File: NSManagedObject, Identifiable {
     @NSManaged var name: String
     @NSManaged var text: String
     @NSManaged var recentDate: Date
+    @NSManaged var currentIndex: Int16
 }

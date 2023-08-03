@@ -26,11 +26,15 @@
 		0417FA71297D7C7500C23D87 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA70297D7C7500C23D87 /* String.swift */; };
 		0417FA7A297D83D100C23D87 /* BigLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA79297D83D100C23D87 /* BigLabel.swift */; };
 		0417FA85297D9EFF00C23D87 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA84297D9EFF00C23D87 /* View.swift */; };
+		0445D5322A79D65900B22EA0 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445D5312A79D65900B22EA0 /* Storage.swift */; };
+		0445D5342A7B22BC00B22EA0 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445D5332A7B22BC00B22EA0 /* Date.swift */; };
+		0445D5362A7B233900B22EA0 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445D5352A7B233900B22EA0 /* Double.swift */; };
+		0445D53A2A7BD33E00B22EA0 /* Locale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445D5392A7BD33E00B22EA0 /* Locale.swift */; };
+		0445D53C2A7BD64A00B22EA0 /* ListBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445D53B2A7BD64A00B22EA0 /* ListBuffer.swift */; };
 		0472C7E02A7720C300A21B73 /* Speak.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0472C7DE2A7720C300A21B73 /* Speak.xcdatamodeld */; };
 		0472C7E32A77212800A21B73 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0472C7E22A77212800A21B73 /* File.swift */; };
 		0472C7E52A77237F00A21B73 /* SpeakError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0472C7E42A77237F00A21B73 /* SpeakError.swift */; };
 		0472C7E72A77257000A21B73 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0472C7E62A77257000A21B73 /* Array.swift */; };
-		0472C7E92A77261700A21B73 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0472C7E82A77261700A21B73 /* TextView.swift */; };
 		04E3833B294D319B0070AC9B /* SpeakApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E3833A294D319B0070AC9B /* SpeakApp.swift */; };
 		04E3833F294D319C0070AC9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E3833E294D319C0070AC9B /* Assets.xcassets */; };
 		04F582CB29816DAD00C62E0D /* FileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F582CA29816DAD00C62E0D /* FileRow.swift */; };
@@ -57,11 +61,16 @@
 		0417FA70297D7C7500C23D87 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		0417FA79297D83D100C23D87 /* BigLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigLabel.swift; sourceTree = "<group>"; };
 		0417FA84297D9EFF00C23D87 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		0445D5312A79D65900B22EA0 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		0445D5332A7B22BC00B22EA0 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		0445D5352A7B233900B22EA0 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		0445D5382A7BBD3C00B22EA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0445D5392A7BD33E00B22EA0 /* Locale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locale.swift; sourceTree = "<group>"; };
+		0445D53B2A7BD64A00B22EA0 /* ListBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBuffer.swift; sourceTree = "<group>"; };
 		0472C7DF2A7720C300A21B73 /* Speak.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Speak.xcdatamodel; sourceTree = "<group>"; };
 		0472C7E22A77212800A21B73 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		0472C7E42A77237F00A21B73 /* SpeakError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakError.swift; sourceTree = "<group>"; };
 		0472C7E62A77257000A21B73 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
-		0472C7E82A77261700A21B73 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		04E38337294D319B0070AC9B /* Speak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Speak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E3833A294D319B0070AC9B /* SpeakApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakApp.swift; sourceTree = "<group>"; };
 		04E3833E294D319C0070AC9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -87,6 +96,7 @@
 				0417FA6C297D77AC00C23D87 /* ClearCross.swift */,
 				0417FA3D297A9E2500C23D87 /* DismissCross.swift */,
 				0417FA3C297A9E2500C23D87 /* DraggableTitle.swift */,
+				0445D53B2A7BD64A00B22EA0 /* ListBuffer.swift */,
 				0417FA84297D9EFF00C23D87 /* View.swift */,
 			);
 			path = Extra;
@@ -112,6 +122,9 @@
 				0417FA45297AA13100C23D87 /* AVSpeechSynthesisVoiceQuality.swift */,
 				0417FA4B297AA7CB00C23D87 /* AVSpeechSynthesisVoiceGender.swift */,
 				0417FA54297B3B2B00C23D87 /* Collection.swift */,
+				0445D5332A7B22BC00B22EA0 /* Date.swift */,
+				0445D5352A7B233900B22EA0 /* Double.swift */,
+				0445D5392A7BD33E00B22EA0 /* Locale.swift */,
 				0417FA70297D7C7500C23D87 /* String.swift */,
 			);
 			path = Extensions;
@@ -122,6 +135,7 @@
 			children = (
 				04F582CF2981804900C62E0D /* Haptics.swift */,
 				0417FA4E297AED7900C23D87 /* Defaults.swift */,
+				0445D5312A79D65900B22EA0 /* Storage.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -130,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				0417FA35297A9C5400C23D87 /* SpeakView.swift */,
-				0472C7E82A77261700A21B73 /* TextView.swift */,
 				0417FA52297AFDB700C23D87 /* SpeakBar.swift */,
 				0417FA37297A9C6200C23D87 /* SpeakVM.swift */,
 			);
@@ -162,6 +175,7 @@
 			children = (
 				04E3833E294D319C0070AC9B /* Assets.xcassets */,
 				0472C7DE2A7720C300A21B73 /* Speak.xcdatamodeld */,
+				0445D5382A7BBD3C00B22EA0 /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -277,9 +291,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0417FA6D297D77AC00C23D87 /* ClearCross.swift in Sources */,
+				0445D5322A79D65900B22EA0 /* Storage.swift in Sources */,
 				04E3833B294D319B0070AC9B /* SpeakApp.swift in Sources */,
 				0417FA51297AF03500C23D87 /* VoicesVM.swift in Sources */,
 				0417FA67297D720D00C23D87 /* FilesView.swift in Sources */,
+				0445D53A2A7BD33E00B22EA0 /* Locale.swift in Sources */,
 				0417FA36297A9C5400C23D87 /* SpeakView.swift in Sources */,
 				0417FA7A297D83D100C23D87 /* BigLabel.swift in Sources */,
 				0417FA38297A9C6200C23D87 /* SpeakVM.swift in Sources */,
@@ -287,7 +303,6 @@
 				0417FA55297B3B2B00C23D87 /* Collection.swift in Sources */,
 				0472C7E32A77212800A21B73 /* File.swift in Sources */,
 				0472C7E52A77237F00A21B73 /* SpeakError.swift in Sources */,
-				0472C7E92A77261700A21B73 /* TextView.swift in Sources */,
 				0417FA4A297AA46D00C23D87 /* VoiceRow.swift in Sources */,
 				04F582D02981804900C62E0D /* Haptics.swift in Sources */,
 				0417FA53297AFDB700C23D87 /* SpeakBar.swift in Sources */,
@@ -299,9 +314,12 @@
 				0472C7E72A77257000A21B73 /* Array.swift in Sources */,
 				0417FA3F297A9E2500C23D87 /* DismissCross.swift in Sources */,
 				0472C7E02A7720C300A21B73 /* Speak.xcdatamodeld in Sources */,
+				0445D5342A7B22BC00B22EA0 /* Date.swift in Sources */,
 				0417FA4C297AA7CB00C23D87 /* AVSpeechSynthesisVoiceGender.swift in Sources */,
+				0445D53C2A7BD64A00B22EA0 /* ListBuffer.swift in Sources */,
 				0417FA71297D7C7500C23D87 /* String.swift in Sources */,
 				0417FA65297D70ED00C23D87 /* FilesVM.swift in Sources */,
+				0445D5362A7B233900B22EA0 /* Double.swift in Sources */,
 				0417FA4F297AED7900C23D87 /* Defaults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,7 +452,8 @@
 				DEVELOPMENT_TEAM = 4CQW4CFFYT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = Speak/Resources/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Convert a photo of text to speech";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Convert text in your photos to speech";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -470,7 +489,8 @@
 				DEVELOPMENT_TEAM = 4CQW4CFFYT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = Speak/Resources/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Convert a photo of text to speech";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Convert text in your photos to speech";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
